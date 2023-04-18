@@ -132,24 +132,6 @@ TShutdownMode CKernel::Run (void)
 		m_Timer.MsDelay (500);
 	}
 
-	
-	/*
-	// show the character set on screen
-	for (char chChar = ' '; chChar <= '~'; chChar++)
-	{
-		if (chChar % 8 == 0)
-		{
-			m_Screen.Write ("\n", 1);
-		}
-
-		CString Message;
-		Message.Format ("%02X: \'\u001b[7m%c\u001b[0m\' ", (unsigned) chChar, chChar);
-		
-		m_Screen.Write ((const char *) Message, Message.GetLength ());
-	}
-	m_Screen.Write ("\n", 1);
-	*/
-
 
 	return ShutdownHalt;
 }
