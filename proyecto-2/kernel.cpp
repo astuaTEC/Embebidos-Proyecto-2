@@ -99,7 +99,7 @@ TShutdownMode CKernel::Run (void)
 {
 	m_Logger.Write (FromKernel, LogNotice, "Compile time: " __DATE__ " " __TIME__);
 
-	const char* message = "Dato leido: \n";
+	const char* message = "Distancia: \n";
 
 	bool flag = true; 
 
@@ -126,6 +126,7 @@ TShutdownMode CKernel::Run (void)
 
 			m_Screen.Write(message, my_strlen(message));
 			m_Screen.Write (buffer, BUFFER_SIZE);
+			m_Screen.Write (" cm", 3);
 			m_Screen.Write ("\n", 1);
 		}
 
