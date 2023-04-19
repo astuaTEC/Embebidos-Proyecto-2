@@ -5,7 +5,7 @@ long distancia;
 const float sonido = 34300.0; // Velocidad del sonido en cm/s
 
 void setup() {
-  Serial.begin(9600);//iniciailzamos la comunicación
+  Serial.begin(115200);//iniciailzamos la comunicación
   pinMode(trig, OUTPUT); //pin como salida
   pinMode(echo, INPUT);  //pin como entrada
   digitalWrite(trig, LOW);//Inicializamos el pin con 0
@@ -25,5 +25,5 @@ void loop()
 
   Serial.print(distancia);      
 
-  delay(1000);          
+  delay(700);          
 }
