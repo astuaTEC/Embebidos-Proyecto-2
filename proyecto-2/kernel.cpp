@@ -99,7 +99,11 @@ TShutdownMode CKernel::Run (void)
 {
 	m_Logger.Write (FromKernel, LogNotice, "Compile time: " __DATE__ " " __TIME__);
 
-	const char* message = "Distancia: \n";
+	const char* message = "Porcentaje de luz: \n";
+
+	size_t cursorMovelength = my_strlen("\033[A\033[A");
+	size_t clearLength = my_strlen("\033[J");
+	size_t messageLength = my_strlen(message);
 
 	bool flag = true; 
 
@@ -117,16 +121,16 @@ TShutdownMode CKernel::Run (void)
             buffer[bytesRead] = '\0';
 
 			if (!flag){
-				m_Screen.Write("\033[A\033[A", my_strlen("\033[A\033[A")); // move cursor
-				m_Screen.Write("\033[J", my_strlen("\033[J")); // Clear from cursor position to end of screen
+				m_Screen.Write("\033[A\033[A", cursorMovelength); // move cursor
+				m_Screen.Write("\033[J", clearLength); // Clear from cursor position to end of screen
 			
 			} else { 
 				flag = false;
 			} 
 
-			m_Screen.Write(message, my_strlen(message));
+			m_Screen.Write(message, messageLength);
 			m_Screen.Write (buffer, BUFFER_SIZE);
-			m_Screen.Write (" cm", 3);
+			m_Screen.Write (" %", 2);
 			m_Screen.Write ("\n", 1);
 		}
 
